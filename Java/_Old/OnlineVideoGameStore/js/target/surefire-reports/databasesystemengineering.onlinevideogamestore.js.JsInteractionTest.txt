@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: databasesystemengineering.onlinevideogamestore.js.JsInteractionTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.08 sec <<< FAILURE! - in databasesystemengineering.onlinevideogamestore.js.JsInteractionTest
+initializationError(databasesystemengineering.onlinevideogamestore.js.JsInteractionTest)  Time elapsed: 0.006 sec  <<< ERROR!
+java.lang.reflect.InvocationTargetException
+Caused by: java.lang.NullPointerException: Cannot invoke "javax.script.ScriptEngine.getFactory()" because "eng" is null
+

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1640194638692
+Build-Jdk: 17.0.1
+Built-By: albam
+Bundle-ManifestVersion: 2
+Bundle-Name: OnlineVideoGameStore Shared Client Server Data Structures
+Bundle-SymbolicName: databasesystemengineering.onlinevideogamestore.shar
+ ed
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: databasesystemengineering.onlinevideogamestore.shared;ve
+ rsion="1.0.0.SNAPSHOT"
+Import-Package: net.java.html;version="[1.7,2)",net.java.html.json;versi
+ on="[1.7,2)",org.netbeans.html.json.spi;version="[1.7,2)"
+Tool: Bnd-2.1.0.20130426-122213

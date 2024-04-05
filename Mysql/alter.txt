@@ -1,0 +1,39 @@
+ALTER TABLE Game_ShoppingCartItem ADD CONSTRAINT FKGame_ShoppingCartItem_Game FOREIGN KEY (GameGameID) REFERENCES Game (GameID);
+ALTER TABLE Game ADD CONSTRAINT FKGame_Genre FOREIGN KEY (GenreID) REFERENCES Genre (GenreID);
+ALTER TABLE Game ADD CONSTRAINT FKGame_Saga FOREIGN KEY (SagaID) REFERENCES Saga (SagaID);
+ALTER TABLE Game_ShoppingCartItem ADD CONSTRAINT FKGame_ShoppingCartItem FOREIGN KEY (ShoppingCartItemShoppingCartItemID) REFERENCES ShoppingCartItem (ShoppingCartItemID);
+ALTER TABLE SpecialOffer ADD CONSTRAINT FKSpecialOffer FOREIGN KEY (SpecialOfferID, SpecialOfferProductGameID) REFERENCES SpecialOfferGame (SpecialOfferID, GameID);
+ALTER TABLE SalesOrderDetail ADD CONSTRAINT FKSalesOrderDetail_SpecialOfferGame FOREIGN KEY (SpecialOfferID, GameID) REFERENCES SpecialOfferGame (SpecialOfferID, GameID);
+ALTER TABLE CreditCard ADD CONSTRAINT FKCreditCard_CardType FOREIGN KEY (CardTypeID) REFERENCES CardType (CardTypeID);
+ALTER TABLE CurrencyRate ADD CONSTRAINT FKCurrencyRate_CurrencyFROM FOREIGN KEY (FromCurrencyCode) REFERENCES Currency (CurrencyCode);
+ALTER TABLE CurrencyRate ADD CONSTRAINT FKCurrencyRate_CurrencyTO FOREIGN KEY (ToCurrencyCode) REFERENCES Currency (CurrencyCode);
+ALTER TABLE ContactCreditCard ADD CONSTRAINT FKContactCreditCard_CreditCard FOREIGN KEY (CreditCardID) REFERENCES CreditCard (CreditCardID);
+ALTER TABLE Customer ADD CONSTRAINT FKCustomer_Territory FOREIGN KEY (TerritoryID) REFERENCES Territory (TerritoryID);
+ALTER TABLE Territory ADD CONSTRAINT FKTerritory_CountryRegion FOREIGN KEY (CountryRegionCode) REFERENCES CountryRegion (CountryRegionCode);
+ALTER TABLE Customer ADD CONSTRAINT FKCustomer_Contact FOREIGN KEY (ContactID) REFERENCES Contact (ContactID);
+ALTER TABLE Contact ADD CONSTRAINT FKContact_Title FOREIGN KEY (TitleID) REFERENCES Title (TitleID);
+ALTER TABLE Contact ADD CONSTRAINT FKContact_Address FOREIGN KEY (AddressID) REFERENCES Address (AddressID);
+ALTER TABLE Address ADD CONSTRAINT FKAddress_AddressType FOREIGN KEY (AddressTypeID) REFERENCES AddressType (AddressTypeID);
+ALTER TABLE Address ADD CONSTRAINT FKAddress_StateProvince FOREIGN KEY (StateProvinceID) REFERENCES StateProvince (StateProvinceID);
+ALTER TABLE StateProvince ADD CONSTRAINT FKStateProvince_CountryRegion FOREIGN KEY (CountryRegionCode) REFERENCES CountryRegion (CountryRegionCode);
+ALTER TABLE SalesOrderHeader ADD CONSTRAINT FKSalesOrderHeader_SalesOrderDetail FOREIGN KEY (SalesOrderID) REFERENCES SalesOrderDetail (SalesOrderID);
+ALTER TABLE SalesOrderHeader ADD CONSTRAINT FKSalesOrderHeader_Contact FOREIGN KEY (ContactID) REFERENCES Contact (ContactID);
+ALTER TABLE SalesOrderHeader ADD CONSTRAINT FKSalesOrderHeader_ContactCreditCard2 FOREIGN KEY (ContactID, CreditCardID) REFERENCES ContactCreditCard (ContactID, CreditCardID);
+ALTER TABLE SalesOrderHeader ADD CONSTRAINT FKSalesOrderHeader_Territory FOREIGN KEY (TerritoryID) REFERENCES Territory (TerritoryID);
+ALTER TABLE SalesOrderHeader ADD CONSTRAINT FKSalesOrderHeader_SalesTerritory FOREIGN KEY (TerritoryID) REFERENCES SalesTerritory (TerritoryID);
+ALTER TABLE SalesOrderHeader ADD CONSTRAINT FKSalesOrderHeader_CurrencyRate FOREIGN KEY (CurrencyRateID) REFERENCES CurrencyRate (CurrencyRateID);
+
+ALTER TABLE GameListPriceHistory ADD CONSTRAINT FKGameListPriceHistory_Game FOREIGN KEY (GameID) REFERENCES Game (GameID);
+ALTER TABLE GameReview ADD CONSTRAINT FKGameReview_Game FOREIGN KEY (GameID) REFERENCES Game (GameID);
+ALTER TABLE Game ADD CONSTRAINT FKGame_GameAudiovisuals FOREIGN KEY (GameID) REFERENCES GameAudiovisuals (GameID);
+ALTER TABLE GameAudiovisuals ADD CONSTRAINT FKGameAudiovisuals_GamePhoto FOREIGN KEY (GamePhotoID) REFERENCES GamePhoto (GamePhotoID);
+ALTER TABLE GameAudiovisuals ADD CONSTRAINT FKGameAudiovisuals_GameVideo FOREIGN KEY (GameVideoID) REFERENCES GameVideo (GameVideoID);
+ALTER TABLE SalesOrderHeader ADD CONSTRAINT FKSalesOrderHeader_Customer FOREIGN KEY (CustomerID) REFERENCES Customer (CustomerID);
+
+ALTER TABLE SpecialOfferGame ADD CONSTRAINT FKSpecialOfferGame_Game FOREIGN KEY (GameID) REFERENCES Game (GameID);
+ALTER TABLE SpecialOfferGame ADD CONSTRAINT FKSpecialOfferGame_SpecialOffer FOREIGN KEY (SpecialOfferID) REFERENCES SpecialOffer (SpecialOfferID);
+ALTER TABLE ContactCreditCard ADD CONSTRAINT FKContactCreditCard FOREIGN KEY (ContactID) REFERENCES Contact (ContactID);
+
+
+
+
